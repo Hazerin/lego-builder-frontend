@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Builder</title>
+    <link rel="stylesheet" href="style_lego_builder.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="script_lego_builder.js" defer></script>
+</head>
+<body>
+    <div class="workarea-background">
+        <div class="workarea"></div>
+    </div>
+    <!-- Barra del nome del progetto -->
+    <div class="project-bar">
+        <span class="project-name">Project name</span>
+        <i class="fas fa-pencil-alt project-icon"></i>
+    </div>
+
+    <!-- Icona utente -->
+   <a href="project_board.html" class="user-icon">
+	    <i class="fas fa-user-circle"></i>
+	</a>
+    <!-- Contenitore principale -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="lego-blocks">
+                <div class="block">
+                    <img src="public/block_01_gray.png" class="block_01 0degree" alt="Block 1">
+                </div>
+                <div class="block">
+                    <img src="public/block_02_gray.png" class="block_02 0degree" alt="Block 2">
+                </div>
+                <div class="block">
+                    <img src="public/block_03_gray.png" class="block_03 0degree" alt="Block 3">
+                </div>
+                <div class="block">
+                    <img src="public/block_04_gray.png" class="block_04 0degree" alt="Block 4">
+                </div>
+                <div class="block">
+                    <img src="public/block_05_gray.png" class="block_05 0degree" alt="Block 5">
+                </div>
+                <div class="block">
+                    <img src="public/block_06_gray.png" class="block_06 0degree" alt="Block 6">
+                </div>
+                <div class="block">
+                    <img src="public/omino_red.png" class="omino 0degree" alt="omino">
+                </div>
+                <div class="block">
+                    <img src="public/cat_red.png" class="cat 0degree" alt="omino">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra in basso -->
+    <div class="bottom-bar">
+        <div class="color-selector">
+            <span class="color red"></span>
+            <span class="color blue"></span>
+            <span class="color green"></span>
+            <span class="color yellow"></span>
+            <span class="color orange"></span>
+        </div>
+        <div class="tools">
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-sync-alt"></i>
+            <i class="fas fa-copy" id="copybutton"></i>
+            <i class="fas fa-trash"></i>
+            <i class="fas fa-save"></i>
+        </div>
+    </div>
+</body>
+</html>

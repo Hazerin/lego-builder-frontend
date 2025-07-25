@@ -1,0 +1,238 @@
+﻿/* Generale */
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+body {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sfondo trascinabile */
+.workarea-background {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Assicura che padding e border non influiscano sulla dimensione */
+}
+
+.workarea {
+    width: 2400px;
+    height: 1800px;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*Stile provvisorio per i "socket" in attesa di definire come incastrare di preciso i blocchi*/
+
+.socket {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #f9f9f9;
+    background-image: 
+        linear-gradient(to right, rgba(200, 200, 200, 0.5) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(200, 200, 200, 0.5) 1px, transparent 1px);
+    background-size: 100% 100%; /* Dimensioni della griglia */
+    overflow: visible;
+}
+
+/* Barra del progetto */
+.project-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e9bf16;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.project-name {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+.project-icon {
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+}
+
+/* Icona utente */
+.user-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 40px;
+    color: #e9bf16;
+    cursor: pointer;
+}
+
+/* Contenitore principale */
+.main-container {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 150px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.lego-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.block {
+    background: #f4f4f4;
+    border: 2px solid #e9bf16;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+.block img {
+    max-height: 60px;
+}
+
+/* Barra in basso */
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f4f4;
+    border:thin black solid;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 50%;
+    z-index: 1;
+}
+
+.color-selector {
+    display: flex;
+    gap: 10px;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.color.red {
+    background-color: red;
+}
+
+.color.blue {
+    background-color: blue;
+}
+
+.color.green {
+    background-color: green;
+}
+
+.color.yellow {
+    background-color: yellow;
+}
+
+.color.orange {
+    background-color: orange;
+}
+
+.tools {
+    display: flex;
+    gap: 20px;
+    font-size: 18px;
+}
+
+.tools i {
+    cursor: pointer;
+    color: black;
+}
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Cambia il layout del contenitore principale */
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        gap: 20px;
+    }
+
+    /* Posizionamento della finestra dei blocchi LEGO */
+    .sidebar {
+        width: 90%; /* Adatta la larghezza */
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow-x: auto; /* Scrolling orizzontale */
+        white-space: nowrap; /* Evita il wrapping degli elementi */
+        display: flex; /* Disposizione in riga */
+        gap: 10px; /* Spaziatura tra i blocchi */
+    }
+
+    /* Rimuove lo stile di colonna per i blocchi LEGO */
+    .lego-blocks {
+        flex-direction: row; /* Disposizione in riga */
+        display: inline-flex;
+        overflow-y: scroll;
+    }
+
+    /* Ridimensiona i blocchi LEGO */
+    .block {
+        width: 100px;
+        height: 60px;
+        flex-shrink: 0; /* Previene il ridimensionamento */
+    }
+
+    /* Barra del progetto */
+    .project-bar {
+        width: 50%; /* Rende la barra responsiva */
+        margin-top: 10px;
+    }
+
+    /* Barra in basso */
+    .bottom-bar {
+        width: 70%; /* Rende la barra in basso responsiva */
+        margin-top: 20px;
+    }
+}
