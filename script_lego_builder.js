@@ -2,6 +2,8 @@
 
 // carico dati 
 
+/*
+
 document.addEventListener('DOMContentLoaded', () => {
     let jsonNewProjectData = localStorage.getItem('newProjectData');
     let newProjectData = JSON.parse(jsonNewProjectData);
@@ -11,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 });
+
+*/
 
 // Funzione di copia link
 function copyLink() {
@@ -89,8 +93,6 @@ function cancelChanges() {
     closePopup();
 }
 
-
-
 // Funzione per salvare il nuovo nome del progetto
 function saveProjectName() {
     const newName = document.getElementById("projectNameInput").value.trim();
@@ -127,8 +129,6 @@ function saveProjectName() {
     // Chiudi il popup
     closePopup();
 }
-
-
 
 // Gestione del caricamento iniziale
 document.addEventListener("DOMContentLoaded", () => {
@@ -183,9 +183,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Aggiungi listener per il pulsante "cancel"
-    document.getElementById("cancelButton").addEventListener("click", cancelChanges);
+    // document.getElementById("cancelButton").addEventListener("click", cancelChanges);
 
     let saveProjectToDBButton = document.getElementById('save-project-to-db');
+    /*
     saveProjectToDBButton.addEventListener('click', function() {
         let jsonNewProjectData = localStorage.getItem('newProjectData');
         let newProjectData = JSON.parse(jsonNewProjectData);
@@ -212,6 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // let result = fetchData(url, 'POST', formData);
         console.log("RESULT: " + result);
     });
+    */
 });
 
 function loadProject(sockets) {
@@ -239,9 +241,10 @@ function loadProject(sockets) {
     } else {
         console.warn("No project data found in localStorage.");
     }
-    // Salvo il primo stato vuoto, che sia
-    saveState(sockets);
     */
+
+    // Salvo il primo stato vuoto
+    saveState(sockets);
 
 }
 
