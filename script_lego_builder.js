@@ -1135,7 +1135,7 @@ function manageLego(element) {
     document.addEventListener("mouseup", (event) => {
         if (isDragging) {
             for (let i = 0; i < sockets.length; i++) {
-                let socketRect = sockets[i].getBoundingClientRect()
+                let socketRect = sockets[i].getBoundingClientRect()           
                 if ((event.clientX < socketRect.right &&
                     event.clientX > socketRect.left &&
                     event.clientY < socketRect.bottom &&
@@ -1347,12 +1347,30 @@ function manageLego(element) {
         selectedColor = null
         copyActive = false
 
-        element.addEventListener("click", () => {
+        element.addEventListener("mouseup", () => {
 
             resetActions()
 
             document.querySelector("body").style.cursor = "url('public/delete_cursor.png') 16 0, auto";
             deleteActive = true
+
+            // Ottiene il blocco su cui è sopra il cursore, in modo da non interagire con le parti trasparenti delle
+            // immagini dei pezzi (per esempio il blocco 05 negli spazi in alto a sx e dx)
+
+            let index
+
+            workarea.addEventListener("mouseup", (event) => {
+                for (let i = 0; i < sockets.length; i++) {
+                    let socketRect = sockets[i].getBoundingClientRect()        
+                    if (event.clientX < socketRect.right &&
+                        event.clientX > socketRect.left &&
+                        event.clientY < socketRect.bottom &&
+                        event.clientY > socketRect.top) {
+                            index = i
+                            console.log(index)
+                        }
+                }
+            })
 
             document.addEventListener("click", () => {
 
@@ -1407,9 +1425,8 @@ function manageLego(element) {
                         }
                         return dfs(startNode);
                     }
-                    // Verifica se si sta cliccando un blocco che non ha pezzi sopra, per poterlo rimuovere e che stia hoverando il piano di lavoro.
+                    // Verifica se si sta cliccando un blocco, poi si controlla che non ha pezzi sopra, per poterlo rimuovere e che stia hoverando il piano di lavoro.
                     if (workarea.querySelector(":hover")) {
-                        let index = parseInt(document.querySelector(".workarea").querySelector(":hover").classList[1])
                             // Non devono esserci pezzi sopra. Per prima cosa trovo la radice del blocco per determinare dove controllare
                             if (sockets[index].hasChildNodes()) {
                                 let socketIndex = findBlockRadix(index)
