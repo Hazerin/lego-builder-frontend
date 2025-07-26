@@ -1515,9 +1515,15 @@ function manageLego(element) {
                                     // non è in basso al centro, ma in basso a destra!
                                     switch (radixPiece.classList[1]) {
                                         case "0degree":
+                                            console.log(workarea.querySelector(":hover"))
+                                            console.log(socketIndex)
+                                            console.log(socketIndex < (changeRow * 2))
                                             // Questo è corretto. Notare che l'indice è -((changeRow * 2) + 1) invece di -(changeRow * 2)
                                             if (socketIndex < (changeRow * 2) ||
-                                                (!sockets[socketIndex -((changeRow * 2) + 1)].firstElementChild)) {
+                                                (!sockets[socketIndex -((changeRow * 2) + 1)].firstElementChild &&
+                                                 !sockets[socketIndex -(changeRow * 1)].firstElementChild &&
+                                                 !sockets[socketIndex -((changeRow * 1) + 2)].firstElementChild
+                                                )) {
                                                 clearSockets([-1, -2, -(changeRow + 1)], socketIndex)
                                                 radixPiece.remove()
                                                 saveState(sockets)
@@ -1525,7 +1531,8 @@ function manageLego(element) {
                                             break;
                                         case "90degree":
                                             if (socketIndex < (changeRow * 3) ||
-                                                !sockets[socketIndex - (changeRow * 3)].firstElementChild) {
+                                                (!sockets[socketIndex - (changeRow * 3)].firstElementChild &&
+                                                 !sockets[socketIndex - ((changeRow * 2) - 1)].firstElementChild)) {
                                                 clearSockets([-changeRow, -(changeRow * 2), - (changeRow - 1)], socketIndex)
                                                 radixPiece.remove()
                                                 saveState(sockets)
@@ -1543,7 +1550,8 @@ function manageLego(element) {
                                             break;
                                         case "270degree":
                                             if (socketIndex < (changeRow * 3) ||
-                                                !sockets[socketIndex - (changeRow * 3)].firstElementChild) {
+                                                (!sockets[socketIndex - (changeRow * 3)].firstElementChild &&
+                                                 !sockets[socketIndex - ((changeRow * 2) + 1)].firstElementChild)) {
                                                 clearSockets([-changeRow, -(changeRow * 2), -(changeRow + 1)], socketIndex)
                                                 radixPiece.remove()
                                                 saveState(sockets)
