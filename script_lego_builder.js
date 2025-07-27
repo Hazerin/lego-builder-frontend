@@ -243,7 +243,8 @@ function loadProject(sockets) {
     }
     */
 
-    // Salvo il primo stato vuoto
+    // Salvo il primo stato, vuoto o equivalente al progetto caricato
+
     saveState(sockets);
 
 }
